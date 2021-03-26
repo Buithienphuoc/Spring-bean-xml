@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	   		http://www.springframework.org/schema/context
+	   		http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+    <!-- Basic beans -->
+    <bean id="cppCoach" class="rmit.springtut.ioc.coach.CppCoach">
+    </bean>
+
+    <bean id="javaCoach" class="rmit.springtut.ioc.coach.JavaCoach">
+    </bean>
+
+    <!-- Beans for dependency injections -->
+    <bean id="happyFortune" class="rmit.springtut.di.service.HappyFortuneService">
+    </bean>
+    <bean id="pythonMentor" class="rmit.springtut.di.mentor.PythonMentor">
+        <!-- Create constructor -->
+        <constructor-arg ref="happyFortune"/>
+    </bean>
+</beans>
